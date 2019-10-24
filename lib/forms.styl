@@ -1,0 +1,77 @@
+form, fieldset
+    margin 0 0 $outerSpacing
+
+fieldset
+    {borders}
+    padding ($innerSpacing - $borderWidth)
+    & > legend:first-child
+        padding 0 $innerSpacing 0 (0.5 * $innerSpacing)
+        margin 0 0 0 (-($innerSpacing * 0.5))
+label
+    display block
+    cursor pointer
+    input, textarea, select
+        display block
+
+label, button
+    margin 0 0 $innerSpacing
+
+form, fieldset, label, button
+    &:last-child
+        margin-bottom 0
+
+input, textarea, select, option, button
+    font inherit
+    border-radius $borderRadius
+    border 0
+    padding ($innerSpacing * 0.5) ($outerSpacing * 0.5)
+input, textarea, select, option
+    width 20rem
+    background rgba($accent, 0.125)
+    color inherit
+
+input[type="submit"], input[type="cancel"], input[type="button"], button
+    width unset
+    cursor pointer
+    background $accent
+    border 0
+    border-radius $borderRadius
+    color (dark($accent)? white : black)
+    margin-inline-end $innerSpacing
+
+input[type="checkbox"], input[type="radio"]
+    -moz-appearance initial
+    -webkit-appearance initial
+    appearance initial
+    display inline-block
+    width 1rem
+    height 1rem
+    box-sizing border-box
+    vertical-align -($borderWidth)
+    margin 0 $innerSpacing 0 0
+    padding 0
+    position relative
+    {borders}
+    {transition}
+    &:checked
+        background $accent
+    &::after
+        content ''
+        border $borderWidth solid black
+        @media (prefers-color-scheme dark)
+            border-color white
+        width 0.75rem
+        height 0.5rem
+        transform scale(0.75, 1) rotate(135deg)
+        position absolute
+        border-left 0
+        border-bottom 0
+        top -0.125rem
+        left -0.1rem
+        {transition}
+        opacity 0
+    &:checked::after
+        opacity 1
+
+input[type="radio"]
+    border-radius 100%

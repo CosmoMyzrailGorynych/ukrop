@@ -1,0 +1,56 @@
+@require './_vars.styl'
+
+body
+    line-height 1.5
+    font-family $fontFamily, system
+
+h1, h2, h3, h4, h5, h6
+    margin $outerSpacing 0 $innerSpacing
+    &:first-child, aside:first-child + &
+        margin-top 0
+h1
+    line-height 3rem
+h2
+    line-height 2.5rem
+h3
+    line-height 2rem
+h4, h5, h6
+    line-height 1.5rem
+p, blockquote, ul, ol
+    margin 0 0 $innerSpacing
+    padding 0
+ul, ol
+    padding-inline-start $outerSpacing
+    aside &
+        padding-inline-start $innerSpacing
+        @media (max-width 40rem)
+            padding-inline-start $outerSpacing
+li
+    margin 0 0 ($innerSpacing / 2)
+h1, h2, h3, h4, h5, h6, p, blockquote, ul, ol, li
+    &:last-child
+        margin-bottom 0
+
+strong, a, h1, h2, h3
+    color $accent
+em
+    background-color rgba($accent, 0.25)
+    padding 0.125em
+    margin 0 -0.125em
+
+blockquote
+    font-size 1.25rem
+    line-height 2rem
+    font-style italic
+    padding $innerSpacing 0 $innerSpacing ($outerSpacing - $borderWidth)
+    border-inline-start $borderWidth solid $accent
+    cite
+        display block
+        text-align end
+        font-size 1rem
+        line-height 1.5rem
+
+pre
+    {borders}
+    padding ($innerSpacing - $borderWidth) ($outerSpacing - $borderWidth)
+    line-height 1.5rem

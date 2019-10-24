@@ -1,0 +1,62 @@
+@require './_vars.styl'
+
+body, html
+    margin 0
+    padding 0
+    position relative
+    height 100%
+    color #444
+    background white
+    @media (prefers-color-scheme dark)
+        background black
+        color #aaa
+
+body
+    display flex
+    flex-flow column nowrap
+footer, header
+    flex 0 0 auto
+    background rgba($accent, 0.125)
+main
+    flex 1 0 auto
+
+section, nav, aside, article, header, footer, main
+    padding $innerSpacing
+    margin 0 0 $outerSpacing
+    box-sizing border-box
+    &:last-child
+        margin-bottom 0
+
+nav, section
+    padding $innerSpacing 0
+
+article
+    max-width 40rem
+    margin  0 auto $outerSpacing
+
+aside
+    float right
+    max-width 20rem
+    clear left
+    padding $innerSpacing
+    margin 0 0 $outerSpacing $outerSpacing
+    background rgba($accent, 0.125)
+    border-radius $borderRadius
+    @media (max-width 40rem)
+        float none
+        max-width initial
+        margin 0 0 $outerSpacing
+section, article
+    clear both
+
+hr
+    border 0
+    margin 0
+    display block
+    &::before
+        content '* * *'
+        display block
+        line-height ($outerSpacing*2)
+        text-align center
+        color $accent
+        font-size 2rem

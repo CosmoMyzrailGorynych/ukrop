@@ -1,0 +1,123 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title 🎍 Ukrop.css
+        link(rel="stylesheet" href="./dist/ukrop.min.css")
+    body
+        header
+            h1 🎍 Ukrop.css
+            nav
+                a(href="https://github.com/CosmoMyzrailGorynych/ukrop") View on GitHub
+        main
+            article
+                aside
+                    h Get Ukrop.css
+                    nav
+                        ul
+                            li
+                                a(href="https://raw.githubusercontent.com/CosmoMyzrailGorynych/ukrop/master/dist/ukrop.min.css").
+                                    Download minified CSS
+                include:markdown-it Readme.md
+                section
+                    :markdown-it(html)
+                        ## Generic markdown content
+
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, *sed do eiusmod tempor incididunt* ut labore et dolore magna aliqua.
+
+                        Pellentesque habitant **morbi tristique** senectus et netus et malesuada. Quam viverra orci sagittis eu volutpat odio.
+                        Sed cras ornare arcu dui vivamus arcu felis bibendum. Amet consectetur adipiscing elit ut aliquam `purus` sit.
+
+                        ### Interdum posuere lorem
+
+                        Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. At varius vel pharetra vel turpis nunc eget lorem dolor.
+                        Pretium quam vulputate *dignissim suspendisse* in est ante [in nibh](https://github.com/CosmoMyzrailGorynych/ukrop). Pharetra vel turpis nunc eget **lorem dolor** sed **viverra ipsum**.
+                        Faucibus vitae aliquet nec ullamcorper sit amet risus. Habitasse platea dictumst quisque sagittis. Pellentesque id nibh tortor
+                        id aliquet lectus proin nibh nisl. Convallis `convallis` tellus id interdum velit laoreet id donec.
+
+                        > Morbi blandit cursus risus at. Amet aliquam id diam maecenas ultricies mi.
+                        > Faucibus vitae aliquet nec ullamcorper sit amet risus.
+                        >
+                        > <cite>Julius Caesar</cite>
+
+                        Turpis egestas sed tempus urna et pharetra pharetra massa massa.
+
+                        ```styl
+                        h1, h2, h3, h4, h5, h6
+                            margin $outerSpacing 0 $innerSpacing
+                            &:first-child, aside:first-child + &
+                                margin-top 0
+                        ```
+                        Sollicitudin tempor id eu nisl. Leo urna molestie at elementum eu facilisis sed. Consequat id porta nibh venenatis cras.
+                        Elementum sagittis vitae et leo duis ut. Felis bibendum ut tristique et.
+
+                        ### Nisi scelerisque eu
+
+                        Nisi scelerisque eu ultrices vitae auctor eu augue ut. At quis risus sed vulputate.
+
+                        Blandit cursus risus at ultrices. Aliquam [nulla facilisi cras](https://github.com/CosmoMyzrailGorynych/ukrop) fermentum odio eu feugiat pretium nibh.
+                        Nisl tincidunt eget nullam non nisi. Arcu cursus vitae congue mauris rhoncus aenean vel.
+                        Malesuada fames ac turpis egestas integer. Arcu non odio euismod lacinia at quis risus sed vulputate.
+
+                        ---
+
+                        Faucibus vitae aliquet nec ullamcorper sit amet risus. Habitasse platea dictumst quisque sagittis.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                section
+                    h2 Form elements
+                    form(method="GET")
+                        fieldset
+                            legend Login information
+                            label
+                                | Login:
+                                input(type="text" placeholder="Login")
+                            label
+                                | Email:
+                                input(type="email" placeholder="your@mail.com" value="definitelyNotAnEmail")
+                            label
+                                | Password:
+                                input(type="password" placeholder="Password")
+                        fieldset
+                            legend Personal information
+                            label
+                                | Bio:
+                                textarea :b
+                            label
+                                | Favourite color:
+                                select
+                                    option Red
+                                    option Yellow
+                                    option Green
+                                    option Cyan
+                                    option Blue
+                                    option Magenta
+                                    option Other
+                        fieldset
+                            legend Idk how to name it really 🤷‍
+                            label
+                                | Years of experience:
+                                input(type="number" min="0" value="5")
+                            p I am a…
+                            label
+                                input(type="radio" name="stateoflife")
+                                | Student
+                            label
+                                input(type="radio" name="stateoflife" selected)
+                                | Hobbyist
+                            label
+                                input(type="radio" name="stateoflife")
+                                | Professional
+                        label
+                            input(type="checkbox" checked)
+                            | I want to sell my soul to a devil and get latest news from The Underground to my inbox
+                        label
+                            input(type="checkbox")
+                            | I agree to the #[a(href="https://policies.google.com/terms?hl=en" target="_blank") Terms of Service] of Google
+                        button(type="cancel") Cancel
+                        button(type="submit") Submit
+
+        footer
+            p.
+                Created by Cosmo Myzrail Gorynych. Licensed under MIT.

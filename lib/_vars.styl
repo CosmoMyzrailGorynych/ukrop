@@ -1,0 +1,13 @@
+$accent = lookup('$accent')? $accent : #04d170
+$fontFamily = lookup('$fontFamily')? $fontFamily : 'Lato'
+
+$innerSpacing = lookup('$innerSpacing')? $innerSpacing : 1rem
+$outerSpacing = lookup('$outerSpacing')? $outerSpacing : 2rem
+$borderRadius = lookup('$borderRadius')? $borderRadius : 0.25rem
+$borderWidth = lookup('$borderWidth')? $borderWidth : 0.15rem
+
+borders =
+    border $borderWidth solid $accent
+    border-radius $borderRadius
+transition =
+    transition ease all 0.25s
