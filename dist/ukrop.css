@@ -188,7 +188,9 @@ input,
 textarea,
 select,
 option {
-  width: 20rem;
+  width: 100%;
+  max-width: 20rem;
+  box-sizing: border-box;
   background: rgba(3,178,95,0.125);
   color: inherit;
 }
@@ -312,12 +314,12 @@ html {
   color: #fff;
 }
 img,
-input,
-select,
-textarea,
 embed,
 video,
-iframe {
+iframe,
+form,
+fieldset,
+label {
   box-sizing: border-box;
   max-width: 100%;
 }

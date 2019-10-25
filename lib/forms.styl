@@ -32,7 +32,9 @@ input, textarea, select, option, button
     padding ($innerSpacing * 0.5) ($outerSpacing * 0.5)
     {transition}
 input, textarea, select, option
-    width 20rem
+    width 100%
+    max-width 20rem
+    box-sizing border-box
     background rgba($accent, 0.125)
     color inherit
     &[disabled]
