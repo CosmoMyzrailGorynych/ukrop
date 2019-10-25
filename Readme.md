@@ -35,3 +35,9 @@ Then, e.g. in your `./styl/index.styl`, add this line:
 ```css
 @require './ukrop/index.styl'
 ```
+
+Or use individual files:
+
+```css
+@require './ukrop/lib/forms.styl'
+```
