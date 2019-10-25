@@ -6,7 +6,7 @@
 * Looks cool with 0 effort
 * Has callouts for your quotes, links and forms
 * Custom radio and checkbox elements with 0 extra elements
-* Configurable via [Stylus](http://stylus-lang.com/)
+* Configurable via [Stylus](http://stylus-lang.com/). See [_vars.styl](https://github.com/CosmoMyzrailGorynych/ukrop/blob/master/lib/_vars.styl)
 * Easy to build upon due to its modularity
 * Automagically turns to black if a user has a dark UI theme ([and if a browser supports it](https://caniuse.com/#feat=prefers-color-scheme))
 
