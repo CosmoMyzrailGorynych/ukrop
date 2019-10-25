@@ -200,6 +200,14 @@ select[disabled],
 option[disabled] {
   background: rgba(90,90,90,0.125);
 }
+option {
+  background: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  option {
+    background: #131313;
+  }
+}
 input:invalid,
 textarea:invalid,
 select:invalid {

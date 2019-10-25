@@ -39,6 +39,10 @@ input, textarea, select, option
     color inherit
     &[disabled]
         background saturation(rgba($accent, 0.125), 0)
+option
+    background $bgLightLight
+    @media (prefers-color-scheme dark)
+        background $bgLightDark
 input, textarea, select
     &:invalid
         box-shadow 0 0 0 $borderWidth $errorColor inset
