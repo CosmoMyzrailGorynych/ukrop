@@ -10,41 +10,70 @@ html(lang="en")
         header
             h1 🎍 Ukrop.css
             nav
-                a(href="https://github.com/CosmoMyzrailGorynych/ukrop") View on GitHub
+                ul
+                    li
+                        a(href="https://github.com/CosmoMyzrailGorynych/ukrop") View on GitHub 🥒
+                    li
+                        a(href="https://github.com/CosmoMyzrailGorynych/shaverma") Shaverma.css 🌯
+                    li
+                        a(href="https://ctjs.rocks/") ct.js game editor 😺 🎮
         main
             article
                 aside
-                    h Get Ukrop.css
+                    h2 Get Ukrop.css
                     nav
                         ul
                             li
                                 a(href="https://raw.githubusercontent.com/CosmoMyzrailGorynych/ukrop/master/dist/ukrop.min.css").
                                     Download minified CSS
+                            li
+                                a(href="https://github.com/CosmoMyzrailGorynych/ukrop").
+                                    Fork/clone the project
                 include:markdown-it Readme.md
+                hr
                 section
                     :markdown-it(html)
-                        ## Generic markdown content
+                        ## Example: Generic blog post
 
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, *sed do eiusmod tempor incididunt* ut labore et dolore magna aliqua.
 
                         Pellentesque habitant **morbi tristique** senectus et netus et malesuada. Quam viverra orci sagittis eu volutpat odio.
                         Sed cras ornare arcu dui vivamus arcu felis bibendum. Amet consectetur adipiscing elit ut aliquam `purus` sit.
+                    figure
+                        img(src="https://picsum.photos/1280/480" alt="A long, responsive image!")
+                        figcaption A long, responsive image!
+                    :markdown-it(html)
+
 
                         ### Interdum posuere lorem
 
                         Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. At varius vel pharetra vel turpis nunc eget lorem dolor.
                         Pretium quam vulputate *dignissim suspendisse* in est ante [in nibh](https://github.com/CosmoMyzrailGorynych/ukrop). Pharetra vel turpis nunc eget **lorem dolor** sed **viverra ipsum**.
                         Faucibus vitae aliquet nec ullamcorper sit amet risus. Habitasse platea dictumst quisque sagittis. Pellentesque id nibh tortor
-                        id aliquet lectus proin nibh nisl. Convallis `convallis` tellus id interdum velit laoreet id donec.
+                        id aliquet <b>lectus proin</b> <i>nibh nisl</i>. Convallis `convallis` tellus id interdum velit laoreet id donec.
 
                         > Morbi blandit cursus risus at. Amet aliquam id diam maecenas ultricies mi.
                         > Faucibus vitae aliquet nec ullamcorper sit amet risus.
                         >
                         > <cite>Julius Caesar</cite>
-
+                    aside
+                        h3 Subscriiibe!
+                        form
+                            label
+                                input(type="email" placeholder="your@email.com")
+                            label
+                                input(type="checkbox")
+                                | Every subscription form must have a link to a privacy policy
+                            button Submit
+                    aside
+                        h3 Oh wow, another #[code &lt;aside&gt;] element!
+                        p And they don't break layout!
+                        p Finally, an appropriate use of #[code float]s!
+                    :markdown-it(html)
                         Turpis egestas sed tempus urna et pharetra pharetra massa massa.
 
                         ```styl
+                        /* If it fits, it sits. If it sits, it fits. If it fits, it sits. If it sits, it fits.*/
                         h1, h2, h3, h4, h5, h6
                             margin $outerSpacing 0 $innerSpacing
                             &:first-child, aside:first-child + &
@@ -52,7 +81,10 @@ html(lang="en")
                         ```
                         Sollicitudin tempor id eu nisl. Leo urna molestie at elementum eu facilisis sed. Consequat id porta nibh venenatis cras.
                         Elementum sagittis vitae et leo duis ut. Felis bibendum ut tristique et.
-
+                    figure
+                        img(src="https://picsum.photos/480/240")
+                        figcaption Images by #[a(href="https://picsum.photos/" target="_blank") Lorem Picsum]
+                    :markdown-it(html)
                         ### Nisi scelerisque eu
 
                         Nisi scelerisque eu ultrices vitae auctor eu augue ut. At quis risus sed vulputate.
@@ -61,12 +93,10 @@ html(lang="en")
                         Nisl tincidunt eget nullam non nisi. Arcu cursus vitae congue mauris rhoncus aenean vel.
                         Malesuada fames ac turpis egestas integer. Arcu non odio euismod lacinia at quis risus sed vulputate.
 
-                        ---
-
                         Faucibus vitae aliquet nec ullamcorper sit amet risus. Habitasse platea dictumst quisque sagittis.
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 section
-                    h2 Form elements
+                    h2 Example: Form elements
                     form(method="GET")
                         fieldset
                             legend Login information
@@ -109,13 +139,36 @@ html(lang="en")
                             label
                                 input(type="radio" name="stateoflife")
                                 | Professional
+                        fieldset
+                            legend Disabled fields
+                            label
+                                | A disabled input
+                                input(type="text" disabled value="A sample value")
+                            label
+                                | A disabled select
+                                select(disabled)
+                                    option Can't touch me
+                                    option Toodododoo
+                                    option Doodoo
+                                    option Doodoo
+                            p Other stuff
+                            label
+                                input(type="radio" name="stateoflife" disabled)
+                                | Student
+                            label
+                                input(type="radio" name="stateoflife" checked disabled)
+                                | Hobbyist
+                            label
+                                input(type="radio" name="stateoflife" disabled)
+                                | Professional
+                            button(disabled) A disabled button
                         label
                             input(type="checkbox" checked)
                             | I want to sell my soul to a devil and get latest news from The Underground to my inbox
                         label
-                            input(type="checkbox")
+                            input(type="checkbox" required)
                             | I agree to the #[a(href="https://policies.google.com/terms?hl=en" target="_blank") Terms of Service] of Google
-                        button(type="cancel") Cancel
+                        button(type="reset") Cancel
                         button(type="submit") Submit
 
         footer

@@ -1,5 +1,13 @@
-$accent = lookup('$accent')? $accent : #04d170
+$accent = lookup('$accent')? $accent : darken(#04d170, 15%)
+$errorColor = lookup('$errorColor')? $errorColor : hue($accent, 355deg)
 $fontFamily = lookup('$fontFamily')? $fontFamily : 'Lato'
+
+// Light UI scheme
+$bgDarkLight = lookup('$bgDarkLight')? $bgDarkLight : darken(white, 7.5%)
+$bgLightLight = lookup('$bgLightLight')? $bgLightLight : white
+// Dark UI scheme
+$bgDarkDark = lookup('$bgDarkDark')? $bgDarkDark : black
+$bgLightDark = lookup('$bgLightDark')? $bgLightDark : lighten(black, 7.5%)
 
 $innerSpacing = lookup('$innerSpacing')? $innerSpacing : 1rem
 $outerSpacing = lookup('$outerSpacing')? $outerSpacing : 2rem

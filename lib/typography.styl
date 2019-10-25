@@ -23,7 +23,7 @@ ul, ol
     padding-inline-start $outerSpacing
     aside &
         padding-inline-start $innerSpacing
-        @media (max-width 40rem)
+        @media (max-width 50rem)
             padding-inline-start $outerSpacing
 li
     margin 0 0 ($innerSpacing / 2)
@@ -52,5 +52,10 @@ blockquote
 
 pre
     {borders}
-    padding ($innerSpacing - $borderWidth) ($outerSpacing - $borderWidth)
+    padding ($innerSpacing - $borderWidth) 0
     line-height 1.5rem
+    overflow auto
+    code
+        display block
+        width max-content // so that we have a nice padding at the end of a line
+        padding 0 ($outerSpacing - $borderWidth)

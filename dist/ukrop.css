@@ -5,7 +5,7 @@ html {
   position: relative;
   height: 100%;
   color: #444;
-  background: #fff;
+  background: #ececec;
 }
 @media (prefers-color-scheme: dark) {
   body,
@@ -21,7 +21,22 @@ body {
 footer,
 header {
   flex: 0 0 auto;
-  background: rgba(4,209,112,0.125);
+}
+footer {
+  background: rgba(3,178,95,0.125);
+}
+header {
+  background: #03b25f;
+  color: #fff;
+}
+header h1,
+header h2,
+header h3,
+header h4,
+header h5,
+header h6,
+header a {
+  color: #fff;
 }
 main {
   flex: 1 0 auto;
@@ -36,6 +51,7 @@ main {
   padding: 1rem;
   margin: 0 0 2rem;
   box-sizing: border-box;
+  overflow: auto;
 }
 section:last-child,
 nav:last-child,
@@ -51,19 +67,27 @@ section {
   padding: 1rem 0;
 }
 article {
-  max-width: 40rem;
+  max-width: 60rem;
   margin: 0 auto 2rem;
+  background: #fff;
+  border-radius: 0.25rem;
+}
+@media (prefers-color-scheme: dark) {
+  article {
+    background: #131313;
+  }
 }
 aside {
   float: right;
   max-width: 20rem;
-  clear: left;
+  box-sizing: border-box;
+  clear: right;
   padding: 1rem;
   margin: 0 0 2rem 2rem;
-  background: rgba(4,209,112,0.125);
+  background: rgba(3,178,95,0.125);
   border-radius: 0.25rem;
 }
-@media (max-width: 40rem) {
+@media (max-width: 50rem) {
   aside {
     float: none;
     max-width: initial;
@@ -73,6 +97,33 @@ aside {
 section,
 article {
   clear: both;
+}
+aside nav {
+  padding: 0;
+  margin: 0 0 2rem;
+}
+nav ul {
+  padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+}
+aside nav ul {
+  flex-flow: column nowrap;
+  padding: 0;
+}
+nav li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  margin: 0 1rem 0 0;
+}
+aside nav li + li {
+  margin: 1rem 0 0;
+}
+figure {
+  margin: 1rem 0;
+  text-align: center;
+  overflow: auto;
 }
 hr {
   border: 0;
@@ -84,15 +135,18 @@ hr::before {
   display: block;
   line-height: 4rem;
   text-align: center;
-  color: #04d170;
+  color: #03b25f;
   font-size: 2rem;
+}
+[disabled] {
+  cursor: not-allowed;
 }
 form,
 fieldset {
   margin: 0 0 2rem;
 }
 fieldset {
-  border: 0.15rem solid #04d170;
+  border: 0.15rem solid #03b25f;
   border-radius: 0.25rem;
   padding: 0.85rem;
 }
@@ -128,14 +182,34 @@ button {
   border-radius: 0.25rem;
   border: 0;
   padding: 0.5rem 1rem;
+  transition: ease all 0.25s;
 }
 input,
 textarea,
 select,
 option {
   width: 20rem;
-  background: rgba(4,209,112,0.125);
+  background: rgba(3,178,95,0.125);
   color: inherit;
+}
+input[disabled],
+textarea[disabled],
+select[disabled],
+option[disabled] {
+  background: rgba(90,90,90,0.125);
+}
+input:invalid,
+textarea:invalid,
+select:invalid {
+  box-shadow: 0 0 0 0.15rem #b20312 inset;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: 0 0 0 0.15rem #03b25f inset;
+}
+textarea {
+  resize: vertical;
 }
 input[type="submit"],
 input[type="cancel"],
@@ -143,11 +217,17 @@ input[type="button"],
 button {
   width: unset;
   cursor: pointer;
-  background: #04d170;
+  background: #03b25f;
   border: 0;
   border-radius: 0.25rem;
   color: #fff;
   margin-inline-end: 1rem;
+}
+input[type="submit"][disabled],
+input[type="cancel"][disabled],
+input[type="button"][disabled],
+button[disabled] {
+  background: #5a5a5a;
 }
 input[type="checkbox"],
 input[type="radio"] {
@@ -162,13 +242,26 @@ input[type="radio"] {
   margin: 0 1rem 0 0;
   padding: 0;
   position: relative;
-  border: 0.15rem solid #04d170;
+  border: 0.15rem solid #03b25f;
   border-radius: 0.25rem;
   transition: ease all 0.25s;
 }
+input[type="checkbox"]:invalid,
+input[type="radio"]:invalid {
+  box-shadow: none;
+  border-color: #b20312;
+}
+input[type="checkbox"]:disabled,
+input[type="radio"]:disabled {
+  border-color: #5a5a5a;
+}
 input[type="checkbox"]:checked,
 input[type="radio"]:checked {
-  background: #04d170;
+  background: #03b25f;
+}
+input[type="checkbox"]:checked:disabled,
+input[type="radio"]:checked:disabled {
+  background: #5a5a5a;
 }
 input[type="checkbox"]::after,
 input[type="radio"]::after {
@@ -198,10 +291,33 @@ input[type="radio"]:checked::after {
 input[type="radio"] {
   border-radius: 100%;
 }
+body {
+  scrollbar-color: #03b25f #fff;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    scrollbar-color: #03b25f #000;
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+::selection {
+  background: #03b25f;
+  color: #fff;
+}
 img,
 input,
 select,
-textarea {
+textarea,
+embed,
+video,
+iframe {
   box-sizing: border-box;
   max-width: 100%;
 }
@@ -260,7 +376,7 @@ aside ul,
 aside ol {
   padding-inline-start: 1rem;
 }
-@media (max-width: 40rem) {
+@media (max-width: 50rem) {
   aside ul,
   aside ol {
     padding-inline-start: 2rem;
@@ -287,10 +403,10 @@ a,
 h1,
 h2,
 h3 {
-  color: #04d170;
+  color: #03b25f;
 }
 em {
-  background-color: rgba(4,209,112,0.25);
+  background-color: rgba(3,178,95,0.25);
   padding: 0.125em;
   margin: 0 -0.125em;
 }
@@ -299,7 +415,7 @@ blockquote {
   line-height: 2rem;
   font-style: italic;
   padding: 1rem 0 1rem 1.85rem;
-  border-inline-start: 0.15rem solid #04d170;
+  border-inline-start: 0.15rem solid #03b25f;
 }
 blockquote cite {
   display: block;
@@ -308,8 +424,14 @@ blockquote cite {
   line-height: 1.5rem;
 }
 pre {
-  border: 0.15rem solid #04d170;
+  border: 0.15rem solid #03b25f;
   border-radius: 0.25rem;
-  padding: 0.85rem 1.85rem;
+  padding: 0.85rem 0;
   line-height: 1.5rem;
+  overflow: auto;
+}
+pre code {
+  display: block;
+  width: max-content;
+  padding: 0 1.85rem;
 }

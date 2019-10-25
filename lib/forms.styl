@@ -1,3 +1,8 @@
+@require './_vars.styl'
+
+[disabled]
+    cursor not-allowed
+
 form, fieldset
     margin 0 0 $outerSpacing
 
@@ -25,15 +30,28 @@ input, textarea, select, option, button
     border-radius $borderRadius
     border 0
     padding ($innerSpacing * 0.5) ($outerSpacing * 0.5)
+    {transition}
 input, textarea, select, option
     width 20rem
     background rgba($accent, 0.125)
     color inherit
+    &[disabled]
+        background saturation(rgba($accent, 0.125), 0)
+input, textarea, select
+    &:invalid
+        box-shadow 0 0 0 $borderWidth $errorColor inset
+    &:focus
+        box-shadow 0 0 0 $borderWidth $accent inset
+
+textarea // You usually don't want users to break layout (:
+    resize vertical
 
 input[type="submit"], input[type="cancel"], input[type="button"], button
     width unset
     cursor pointer
     background $accent
+    &[disabled]
+        background saturation($accent, 0)
     border 0
     border-radius $borderRadius
     color (dark($accent)? white : black)
@@ -53,8 +71,15 @@ input[type="checkbox"], input[type="radio"]
     position relative
     {borders}
     {transition}
+    &:invalid
+        box-shadow none
+        border-color $errorColor
+    &:disabled
+        border-color saturation($accent, 0)
     &:checked
         background $accent
+        &:disabled
+            background saturation($accent, 0)
     &::after
         content ''
         border $borderWidth solid black

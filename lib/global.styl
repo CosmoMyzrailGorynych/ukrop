@@ -1,0 +1,17 @@
+@require './_vars.styl'
+
+body
+    scrollbar-color $accent white
+    @media (prefers-color-scheme dark)
+        scrollbar-color $accent black
+
+/* Native smooth scroll */
+html
+  scroll-behavior smooth
+@media (prefers-reduced-motion: reduce)
+    html
+        scroll-behavior auto
+
+::selection
+    background $accent
+    color dark($accent)? white : black
