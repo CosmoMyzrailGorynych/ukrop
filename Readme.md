@@ -1,4 +1,4 @@
-🎍 Ukrop.css is an instant solution to styling web pages. It does not aim to be the most slim solution, but to be a complete one, which you can reliably use for any project. It also an attempt to show that using css classes everywhere is a signal of bad atomic design in layouts — meaning that *you don't need to use css classes for most of the content*.
+🎍 Ukrop.css is an instant solution to styling web pages. It does not aim to be the most slim solution, but to be a complete one, which you can reliably use for any project. It is also an attempt to show that using css classes everywhere is a signal of bad atomic design in layouts — meaning that *you don't need to use css classes for most of the content*.
 
 * No classes required, just your semantic HTML code
 * Responsive and `em`/`rem`-driven
