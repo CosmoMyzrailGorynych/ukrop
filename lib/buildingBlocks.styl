@@ -5,11 +5,20 @@ body, html
     padding 0
     position relative
     height 100%
-    color #444
-    background $bgDarkLight
+    color $textColorLightUI
+    color var(--text-color)
+    --bg-dark $bgDarkLightUI
+    --bg-light $bgLightLightUI
+    background $bgDarkLightUI
+    background var(--bg-dark)
     @media (prefers-color-scheme dark)
-        background $bgDarkDark
-        color #ccc
+        --bg-dark var(--bg-dark-dark)
+        --bg-light var(--bg-light-dark)
+        --text-color var(--text-color-dark)
+        background $bgDarkDarkUI
+        background var(--bg-dark)
+        color $textColorDarkUI
+        color var(--text-color)
 
 body
     display flex
@@ -18,9 +27,12 @@ footer, header
     flex 0 0 auto
 footer
     background rgba($accent, 0.125)
+    background var(--accent25)
 header
     background $accent
+    background var(--accent)
     color dark($accent)? white : black
+    color var(--contrast)
     h1, h2, h3, h4, h5, h6, a
         color @color
 main
@@ -40,10 +52,12 @@ nav, section
 article
     max-width 60rem
     margin  0 auto $outerSpacing
-    background $bgLightLight
-    border-radius $borderRadius
+    background $bgLightLightUI
+    background var(--bg-light)
+    {border-rad}
     @media (prefers-color-scheme dark)
-        background $bgLightDark
+        background $bgLightDarkUI
+        background var(--bg-light)
 
 aside
     float right
@@ -53,7 +67,8 @@ aside
     padding $innerSpacing
     margin 0 0 $outerSpacing $outerSpacing
     background rgba($accent, 0.125)
-    border-radius $borderRadius
+    background var(--accent25)
+    {border-rad}
     @media (max-width 50rem)
         float none
         max-width initial
@@ -95,4 +110,5 @@ hr
         line-height ($outerSpacing*2)
         text-align center
         color $accent
+        color var(--accent)
         font-size 2rem

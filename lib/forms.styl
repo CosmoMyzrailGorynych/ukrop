@@ -9,6 +9,7 @@ form, fieldset
 fieldset
     {borders}
     padding ($innerSpacing - $borderWidth)
+    padding "calc(%s - var(--border-width))" % $innerSpacing
     & > legend:first-child
         padding 0 $innerSpacing 0 (0.5 * $innerSpacing)
         margin 0 0 0 (-($innerSpacing * 0.5))
@@ -27,7 +28,7 @@ form, fieldset, label, button
 
 input, textarea, select, option, button
     font inherit
-    border-radius $borderRadius
+    {border-rad}
     border 0
     padding ($innerSpacing * 0.5) ($outerSpacing * 0.5)
     {transition}
@@ -36,31 +37,39 @@ input, textarea, select, option
     max-width 20rem
     box-sizing border-box
     background rgba($accent, 0.125)
+    background var(--accent12)
     color inherit
     &[disabled]
-        background saturation(rgba($accent, 0.125), 0)
+        background saturation(rgba($accent, 0.125), 0) // fallback for IE
+        filter saturate(0)
+
 option
-    background $bgLightLight
+    background $bgLightLightUI
     @media (prefers-color-scheme dark)
-        background $bgLightDark
+        background $bgLightDarkUI
 input, textarea, select
     &:invalid
         box-shadow 0 0 0 $borderWidth $errorColor inset
+        box-shadow 0 0 0 var(--border-width) var(--error-color) inset
     &:focus
         box-shadow 0 0 0 $borderWidth $accent inset
+        box-shadow 0 0 0 var(--border-width) var(--accent) inset
 
-textarea // You usually don't want users to break layout (:
+textarea // You usually don't want users to break layout, so we lock horizontal size (:
     resize vertical
 
 input[type="submit"], input[type="cancel"], input[type="button"], button
     width unset
     cursor pointer
     background $accent
+    background var(--accent)
     &[disabled]
-        background saturation($accent, 0)
+        background saturation($accent, 0) // fallback for IE
+        filter saturate(0)
     border 0
-    border-radius $borderRadius
+    {border-rad}
     color (dark($accent)? white : black)
+    color var(--contrast)
     margin-inline-end $innerSpacing
 
 input[type="checkbox"], input[type="radio"]
@@ -72,6 +81,7 @@ input[type="checkbox"], input[type="radio"]
     height 1rem
     box-sizing border-box
     vertical-align -($borderWidth)
+    vertical-align -var(--border-width)
     margin 0 $innerSpacing 0 0
     padding 0
     position relative
@@ -82,13 +92,16 @@ input[type="checkbox"], input[type="radio"]
         border-color $errorColor
     &:disabled
         border-color saturation($accent, 0)
+        filter saturate(0)
     &:checked
         background $accent
+        background var(--accent)
         &:disabled
             background saturation($accent, 0)
     &::after
         content ''
         border $borderWidth solid black
+        border var(--border-width) solid black
         @media (prefers-color-scheme dark)
             border-color white
         width 0.75rem

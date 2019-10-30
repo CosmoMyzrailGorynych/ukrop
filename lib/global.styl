@@ -2,8 +2,10 @@
 
 body
     scrollbar-color $accent white
+    scrollbar-color var(--accent) white
     @media (prefers-color-scheme dark)
         scrollbar-color $accent black
+        scrollbar-color var(--accent) black
 
 /* Native smooth scroll */
 html
@@ -14,4 +16,6 @@ html
 
 ::selection
     background $accent
+    background var(--accent)
     color dark($accent)? white : black
+    color var(--contrast)

@@ -33,8 +33,10 @@ h1, h2, h3, h4, h5, h6, p, blockquote, ul, ol, li
 
 strong, a, h1, h2, h3
     color $accent
+    color var(--accent)
 em
     background-color rgba($accent, 0.25)
+    background-color var(--accent25)
     padding 0.125em
     margin 0 -0.125em
 
@@ -43,7 +45,9 @@ blockquote
     line-height 2rem
     font-style italic
     padding $innerSpacing 0 $innerSpacing ($outerSpacing - $borderWidth)
+    padding $innerSpacing 0 $innerSpacing "calc(%s - var(--border-width))" % $outerSpacing
     border-inline-start $borderWidth solid $accent
+    border-inline-start var(--border-width) solid var(--accent)
     cite
         display block
         text-align end
@@ -53,9 +57,10 @@ blockquote
 pre
     {borders}
     padding ($innerSpacing - $borderWidth) 0
+    padding "calc(%s - var(--border-width))" % $innerSpacing 0
     line-height 1.5rem
     overflow auto
     code
         display block
         width max-content // so that we have a nice padding at the end of a line
-        padding 0 ($outerSpacing - $borderWidth)
+        padding 0 "calc(%s - var(--border-width))" % $outerSpacing

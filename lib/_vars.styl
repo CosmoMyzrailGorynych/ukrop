@@ -1,21 +1,42 @@
 $accent = lookup('$accent')? $accent : darken(#04d170, 15%)
 $errorColor = lookup('$errorColor')? $errorColor : hue($accent, 355deg)
+$textColorLightUI = lookup('$textColorLight')? $textColorLight : #444
+$textColorDarkUI = lookup('$textColorDark')? $textColorDark : #ccc
 $fontFamily = lookup('$fontFamily')? $fontFamily : 'Lato'
 
 // Light UI scheme
-$bgDarkLight = lookup('$bgDarkLight')? $bgDarkLight : darken(white, 7.5%)
-$bgLightLight = lookup('$bgLightLight')? $bgLightLight : white
+$bgDarkLightUI = lookup('$bgDarkLightUI')? $bgDarkLightUI : darken(white, 7.5%)
+$bgLightLightUI = lookup('$bgLightLightUI')? $bgLightLightUI : white
 // Dark UI scheme
-$bgDarkDark = lookup('$bgDarkDark')? $bgDarkDark : black
-$bgLightDark = lookup('$bgLightDark')? $bgLightDark : lighten(black, 7.5%)
+$bgDarkDarkUI = lookup('$bgDarkDarkUI')? $bgDarkDarkUI : black
+$bgLightDarkUI = lookup('$bgLightDarkUI')? $bgLightDarkUI : lighten(black, 7.5%)
 
 $innerSpacing = lookup('$innerSpacing')? $innerSpacing : 1rem
 $outerSpacing = lookup('$outerSpacing')? $outerSpacing : 2rem
 $borderRadius = lookup('$borderRadius')? $borderRadius : 0.25rem
 $borderWidth = lookup('$borderWidth')? $borderWidth : 0.15rem
 
+body
+    --accent $accent
+    --contrast (dark($accent)? white : black)
+    --accent12 rgba($accent, 12.5%)
+    --accent25 rgba($accent, 25%)
+    --error-color $errorColor
+    --text-color-light $textColorLightUI
+    --text-color-dark $textColorDarkUI
+    --bg-dark-light $bgDarkLightUI
+    --bg-light-light $bgLightLightUI
+    --bg-dark-dark $bgDarkDarkUI
+    --bg-light-dark $bgLightDarkUI
+    --border-radius $borderRadius
+    --border-width $borderWidth
+
+border-rad =
+    border-radius $borderRadius
+    border-radius var(--border-radius)
 borders =
     border $borderWidth solid $accent
-    border-radius $borderRadius
+    border var(--border-width) solid var(--accent)
+    {border-rad}
 transition =
     transition ease all 0.25s
