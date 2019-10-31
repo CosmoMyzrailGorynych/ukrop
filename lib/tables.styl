@@ -1,0 +1,42 @@
+table
+    margin 0 0 $outerSpacing
+    &:last-child
+        margin 0
+    padding 0
+    border-spacing 0
+    border 0
+    {borders}
+    caption
+        color $accent
+        color var(--accent)
+        font-weight bold
+td, th
+    padding ($innerSpacing / 2) $innerSpacing
+    text-align start
+    &:first-child
+        padding-inline-start ($outerSpacing - $borderWidth)
+        padding-inline-start "calc(%s - var(--border-width))" % $outerSpacing
+    &:last-child
+        padding-inline-end ($outerSpacing - $borderWidth)
+        padding-inline-end "calc(%s - var(--border-width))" % $outerSpacing
+tr
+    &:nth-child(2n), thead &
+        td, th
+            background rgba($accent, 0.125)
+            background var(--accent12)
+    &:first-child
+        td, th
+            &:first-child
+                border-start-start-radius $borderRadius
+                border-start-start-radius var(--border-radius)
+            &:last-child
+                border-start-end-radius $borderRadius
+                border-start-end-radius var(--border-radius)
+    &:last-child
+        td, th
+            &:first-child
+                border-end-start-radius $borderRadius
+                border-end-start-radius var(--border-radius)
+            &:last-child
+                border-end-end-radius $borderRadius
+                border-end-end-radius var(--border-radius)

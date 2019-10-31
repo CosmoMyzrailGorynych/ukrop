@@ -32,6 +32,49 @@ html(lang="en")
                 include:markdown-it Readme.md
                 hr
                 section
+                    aside
+                        h3 Try it out!
+                        button#thePartyMode Toggle color
+                        button#theRoundMode Make it round
+                        button#theDefaultMode Reset borders to default
+                        button#theSquareMode Make it square
+                    h2 Theming
+                    p.
+                        Ukrop.css uses a number of variables that define its look and feel:
+                    ul
+                        li: code --accent
+                        li: code --accent12
+                        li: code --accent25
+                        li: code --contrast
+                        li: code --error-color
+                        li: code --text-color-light
+                        li: code --text-color-dark
+                        li: code --bg-light
+                        li: code --bg-dark
+                        li: code --border-radius
+                        li: code --border-width
+                    script.
+                        var colors = ['#03b25f', '#0356b2', '#5f03b2', '#b20356', '#b25f03', '#56b203'];
+                        var currentColor = 0;
+                        document.querySelector('#thePartyMode').addEventListener('click', function () {
+                            currentColor++;
+                            if (currentColor > colors.length -1) {
+                                currentColor = 0;
+                            }
+                            document.body.style.setProperty('--accent', colors[currentColor]);
+                            document.body.style.setProperty('--accent12', colors[currentColor] + '20');
+                            document.body.style.setProperty('--accent25', colors[currentColor] + '40');
+                        });
+                        document.querySelector('#theRoundMode').addEventListener('click', function () {
+                            document.body.style.setProperty('--border-radius', '1rem');
+                        });
+                        document.querySelector('#theDefaultMode').addEventListener('click', function () {
+                            document.body.style.setProperty('--border-radius', '');
+                        });
+                        document.querySelector('#theSquareMode').addEventListener('click', function () {
+                            document.body.style.setProperty('--border-radius', '0');
+                        });
+                section
                     :markdown-it(html)
                         ## Example: Generic blog post
 
@@ -95,6 +138,7 @@ html(lang="en")
 
                         Faucibus vitae aliquet nec ullamcorper sit amet risus. Habitasse platea dictumst quisque sagittis.
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
                 section
                     h2 Example: Form elements
                     form(method="GET")
@@ -164,13 +208,68 @@ html(lang="en")
                             button(disabled) A disabled button
                         label
                             input(type="checkbox" checked)
-                            | I want to sell my soul to a devil and get latest news from The Underground to my inbox
+                            | I want to sell my soul to a devil and get the latest news from The Underground to my inbox
                         label
                             input(type="checkbox" required)
                             | I agree to the #[a(href="https://policies.google.com/terms?hl=en" target="_blank") Terms of Service] of Google
                         button(type="reset") Cancel
                         button(type="submit") Submit
 
+                section
+                    h2 Example: Table
+                    table
+                        caption IP table
+                        thead
+                            tr
+                                th IP
+                                th Status
+                                th Notes
+                        each num in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                            tr
+                                td=`10.10.10.${num}`
+                                td=`${(num + 2) % 5 === 0? 'Disabled' : 'Active'}`
+                                td=`Lorem ipsum ${'dolor '.repeat(Math.random()*5)}`
+                    p A little label at the top of the table is made by the #[code caption] tag.
+                -
+                    var lorem = 'lorem ipsum dolor sit amet consectetur adipisicing elit perspiciatis quae doloribus voluptatibus accusamus assumenda aperiam necessitatibus corrupti suscipit corporis natus nulla nobis quisquam alias odio modi corrupti nesciunt accusamus enim'
+                    .split(' ');
+                section
+                    h2 Example: A very long table + #[code section]
+                    p.
+                        Tables are not that easy to wrap or to constrain to specific size without an additional markup.
+                        If you are using semantic html only, the best way is putting it to a separate #[code section].
+                        Still quite semant-y, and #[code section]s will show a scrolllbar underneath tables.
+                    table
+                        thead
+                            tr
+                                each num in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+                                    th=lorem[~~(Math.random()*lorem.length)]
+                        each num in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                            tr
+                                each num in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+                                    td=lorem[~~(Math.random()*lorem.length)]
+                section
+                    h2 Example: A very long table + breaking rules
+                    p.
+                        With a little aid of CSS + one #[code div], you can make a table scrollable. This is not the semantic way™, but whatever:
+                    pre
+                        code.
+                            &lt;div style="overflow-x: auto;"&gt;
+                                &lt;table&gt;
+                                    …
+                                &lt;/table&gt;
+                            &lt;/div&gt;
+                    p Result:
+                    div(style="overflow-x: auto;")
+                        table
+                            thead
+                                tr
+                                    each num in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+                                        th=lorem[~~(Math.random()*lorem.length)]
+                            each num in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                                tr
+                                    each num in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+                                        td=lorem[~~(Math.random()*lorem.length)]
         footer
             p.
                 Created by Cosmo Myzrail Gorynych. Licensed under MIT.

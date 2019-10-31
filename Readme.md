@@ -1,14 +1,14 @@
 🎍 Ukrop.css is an instant solution to styling web pages. It does not aim to be the most slim solution, but to be a complete one, which you can reliably use for any project. It is also an attempt to show that using css classes everywhere is a signal of bad atomic design in layouts — meaning that *you don't need to use css classes for most of the content*.
 
-* No classes required, just your semantic HTML code
-* Responsive and `em`/`rem`-driven
-* Predictable layout thanks to consistent use of `padding` and `margin-bottom`
-* Looks cool with 0 effort
-* Has callouts for your quotes, links and forms
-* Custom radio and checkbox elements with 0 extra elements
-* Configurable via [Stylus](http://stylus-lang.com/). See [_vars.styl](https://github.com/CosmoMyzrailGorynych/ukrop/blob/master/lib/_vars.styl)
-* Easy to build upon due to its modularity
-* Automagically turns to black if a user has a dark UI theme ([and if a browser supports it](https://caniuse.com/#feat=prefers-color-scheme))
+* No classes required, just your semantic HTML code;
+* Responsive and `em`/`rem`-driven;
+* Predictable layout thanks to consistent use of `padding` and `margin-bottom`;
+* Looks cool with 0 effort;
+* Has callouts for your quotes, links and forms;
+* Custom radio and checkbox elements with 0 extra elements;
+* Configurable via [Stylus](http://stylus-lang.com/) and CSS variables. See [_vars.styl](https://github.com/CosmoMyzrailGorynych/ukrop/blob/master/lib/_vars.styl)!
+* Easy to build upon due to its modularity and exposed color variables;
+* Automagically turns to black if a user has a dark UI theme ([and if a browser supports it](https://caniuse.com/#feat=prefers-color-scheme)).
 
 # Install
 

@@ -58,7 +58,7 @@ input, textarea, select
 textarea // You usually don't want users to break layout, so we lock horizontal size (:
     resize vertical
 
-input[type="submit"], input[type="cancel"], input[type="button"], button
+input[type="submit"], input[type="reset"], input[type="button"], button
     width unset
     cursor pointer
     background $accent
@@ -71,6 +71,9 @@ input[type="submit"], input[type="cancel"], input[type="button"], button
     color (dark($accent)? white : black)
     color var(--contrast)
     margin-inline-end $innerSpacing
+    &:last-child
+        margin-inline-end 0
+
 
 input[type="checkbox"], input[type="radio"]
     -moz-appearance initial
