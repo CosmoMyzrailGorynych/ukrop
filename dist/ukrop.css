@@ -454,7 +454,7 @@ tr:last-child th:last-child {
 }
 body {
   line-height: 1.5;
-  font-family: 'Lato', system;
+  font-family: 'Lato', sans-serif, system;
 }
 h1,
 h2,
