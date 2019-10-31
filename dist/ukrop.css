@@ -499,6 +499,12 @@ ol {
   margin: 0 0 1rem;
   padding: 0;
 }
+p:last-child,
+blockquote:last-child,
+ul:last-child,
+ol:last-child {
+  margin: 0;
+}
 ul,
 ol {
   padding-inline-start: 2rem;

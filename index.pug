@@ -53,27 +53,6 @@ html(lang="en")
                         li: code --bg-dark
                         li: code --border-radius
                         li: code --border-width
-                    script.
-                        var colors = ['#03b25f', '#0356b2', '#5f03b2', '#b20356', '#b25f03', '#56b203'];
-                        var currentColor = 0;
-                        document.querySelector('#thePartyMode').addEventListener('click', function () {
-                            currentColor++;
-                            if (currentColor > colors.length -1) {
-                                currentColor = 0;
-                            }
-                            document.body.style.setProperty('--accent', colors[currentColor]);
-                            document.body.style.setProperty('--accent12', colors[currentColor] + '20');
-                            document.body.style.setProperty('--accent25', colors[currentColor] + '40');
-                        });
-                        document.querySelector('#theRoundMode').addEventListener('click', function () {
-                            document.body.style.setProperty('--border-radius', '1rem');
-                        });
-                        document.querySelector('#theDefaultMode').addEventListener('click', function () {
-                            document.body.style.setProperty('--border-radius', '');
-                        });
-                        document.querySelector('#theSquareMode').addEventListener('click', function () {
-                            document.body.style.setProperty('--border-radius', '0');
-                        });
                 section
                     :markdown-it(html)
                         ## Example: Generic blog post
@@ -273,3 +252,24 @@ html(lang="en")
         footer
             p.
                 Created by Cosmo Myzrail Gorynych. Licensed under MIT.
+        script.
+            var colors = ['#03b25f', '#0356b2', '#5f03b2', '#b20356', '#b25f03', '#56b203'];
+            var currentColor = 0;
+            document.querySelector('#thePartyMode').addEventListener('click', function () {
+                currentColor++;
+                if (currentColor > colors.length -1) {
+                    currentColor = 0;
+                }
+                document.body.style.setProperty('--accent', colors[currentColor]);
+                document.body.style.setProperty('--accent12', colors[currentColor] + '20');
+                document.body.style.setProperty('--accent25', colors[currentColor] + '40');
+            });
+            document.querySelector('#theRoundMode').addEventListener('click', function () {
+                document.body.style.setProperty('--border-radius', '1rem');
+            });
+            document.querySelector('#theDefaultMode').addEventListener('click', function () {
+                document.body.style.setProperty('--border-radius', '');
+            });
+            document.querySelector('#theSquareMode').addEventListener('click', function () {
+                document.body.style.setProperty('--border-radius', '0');
+            });
